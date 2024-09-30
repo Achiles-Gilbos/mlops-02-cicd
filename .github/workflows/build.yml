@@ -17,4 +17,4 @@ jobs:
       - name: Yarn install
         run: yarn install
       - name: Yarn lint
-        run: yarn lint
+        run: yarn lint --version
