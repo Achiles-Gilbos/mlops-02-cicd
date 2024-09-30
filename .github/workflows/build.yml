@@ -16,6 +16,7 @@ jobs:
           node-version: 20
       - name: Yarn install
         run: yarn install
+      - run: yarn add eslint@8.17.0 --exact
       - name: Print lint version
         run: yarn eslint --version
       - name: Yarn lint
