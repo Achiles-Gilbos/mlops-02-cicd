@@ -16,5 +16,7 @@ jobs:
           node-version: 20
       - name: Yarn install
         run: yarn install
+      - name: Print lint version
+        run: yarn eslint --version
       - name: Yarn lint
-        run: yarn lint --version
+        run: yarn lint
