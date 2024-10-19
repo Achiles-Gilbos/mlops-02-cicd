@@ -36,6 +36,8 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/webapp:latest
       - name: Docker run
         run: docker run -dp 127.0.0.1:3000:3000 ${{ secrets.DOCKER_USERNAME }}/webapp:latest
+      - name: wait for webapp
+        run: sleep 10
       - name: Docker ps
         run: docker ps
       - name: netstat
