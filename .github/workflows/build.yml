@@ -39,6 +39,6 @@ jobs:
       - name: Wait for webapp
         # Retry curl until the webapp is up
         run: |
-          curl --retry 30 --retry-delay 2 --retry-connrefused 127.0.0.1:3000
+          curl --retry 30 --retry-delay 2 --retry-connrefused --retry-all-errors 127.0.0.1:3000
       - name: Yarn test
         run: yarn test
