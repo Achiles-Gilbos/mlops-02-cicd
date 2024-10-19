@@ -22,3 +22,7 @@ jobs:
           yarn eslint --version
       - name: Yarn lint
         run: yarn lint
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Docker build
+        run: docker build -t agilbos/webapp:latest .
