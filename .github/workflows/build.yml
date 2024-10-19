@@ -41,6 +41,6 @@ jobs:
       - name: netstat
         run: netstat -tuln
       - name: curl
-        run: curl webapp:3000
+        run: curl 127.0.0.1:3000
       - name: yarn test
         run: yarn test
