@@ -37,6 +37,8 @@ jobs:
       - name: Docker run
         run: docker run -dp 127.0.0.1:3000:3000 ${{ secrets.DOCKER_USERNAME }}/webapp:latest
       - name: Wait for webapp
-        run: sleep 10
+        # Retry curl until the webapp is up
+        run: |
+          curl --retry 30 --retry-delay 2 --retry-connrefused 127.0.0.1:3000
       - name: Yarn test
         run: yarn test
