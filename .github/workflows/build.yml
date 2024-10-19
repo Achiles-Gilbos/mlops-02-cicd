@@ -16,6 +16,8 @@ jobs:
           node-version: 20
       - name: Yarn install
         run: yarn install
+      - name: Yarn test
+        run: yarn test
       - name: Add older eslint version
         run: |
           yarn add eslint@8.17.0 --exact
