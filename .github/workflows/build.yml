@@ -39,6 +39,6 @@ jobs:
       - name: Docker ps
         run: docker ps
       - name: curl
-        run: curl http://localhost:3000
+        run: curl http://127.0.0.1:3000
       - name: yarn test
         run: yarn test
