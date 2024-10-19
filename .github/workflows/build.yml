@@ -28,16 +28,15 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          password: ${{ secrets.DOCKER_TOKEN }}
       - name: Docker build
         uses: docker/build-push-action@v6
         with:
-          push: false
+          push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/webapp:latest
       - name: Docker run
         run: docker run -dp 127.0.0.1:3000:3000 ${{ secrets.DOCKER_USERNAME }}/webapp:latest
       - name: Wait for webapp
-        # Retry curl until the webapp is up
         run: |
           curl --retry 30 --retry-delay 2 --retry-connrefused --retry-all-errors 127.0.0.1:3000
       - name: Yarn test
